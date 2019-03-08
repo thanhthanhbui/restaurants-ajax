@@ -1,0 +1,24 @@
+<h1 class="center">Restaurants</h1>
+<hr />
+<div class="row">
+  <div class="col s12 m6">
+    <button class="btn" id="toggle">Add Restaurant</button>
+    <ol id="rests-list">
+      <% @rests.each do |rest| %>
+        <li 
+          class="rest-item"
+          data-id=<%= rest.id %>
+          data-name="<%= rest.name %>"
+        >
+          <%= rest.name %> - <%= rest.description %>
+        </li>
+        <%= render partial: 'rest', locals: { rest: rest } %>
+      <% end %>
+    </ol>
+  </div>
+  <div class="row" id="food-list">
+    <h2 id="rest">Menu of Restaurant</h2>
+    <ol id="foods">
+    </ol>
+  </div>
+</div>
